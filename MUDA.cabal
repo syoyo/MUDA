@@ -1,0 +1,14 @@
+Name:                MUDA
+Version:             0.2
+Description:         MUDA, MUltiple Data Acceleration language.
+License:             BSD3
+License-file:        LICENSE
+Author:              Syoyo Fujita
+Maintainer:          syoyo@lighttransport.com
+Build-Type:          Simple
+Cabal-Version:       >=1.2
+
+Executable haq
+  Main-is:           Main.hs
+  Build-Depends:     base
+
