@@ -1,2 +1,2 @@
 all:
-	ghc --make Main.hs
+	ghc -o mudah --make Main.hs
