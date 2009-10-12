@@ -51,14 +51,32 @@ program             = do  { ast <- many (spaces >> global)
 
 global              =     functionDefinition
 
+varDef              = do  { ty <- primType
+                          ; name <- identifier
+                          ; semi
+                          ; return (VarDef ty name)
+                          }
+
+statement :: MUDAParser [Expr]
+statement           = do  { vdef <- varDef 
+                          ; return [vdef]
+                          }
+                          
+
+
+statements          = do  { stms <- many statement      -- [[]]
+                          ; return $ concat stms        -- []
+                          }
+
 functionDefinition  = do  { reserved "__kernel"
                           ; reserved "void" 
                           ; name <- identifier 
                           ; symbol "("
                           ; symbol ")"
                           ; symbol "{"
+                          ; stms <- statements
                           ; symbol "}"
-                          ; return (Func name)
+                          ; return (Func name stms)
                           }
 
 -- | Parse primitive types.

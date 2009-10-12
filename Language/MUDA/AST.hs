@@ -30,6 +30,12 @@ data Type
  deriving (Show, Eq, Typeable, Data)
 
 
+-- | MUDA expressions.
+data Expr
+ = VarDef Type String     -- variable definition.
+ deriving (Show, Eq, Typeable, Data)
+
+
 -- | MUDA symbols.
 data Symbol
  = Symbol String
@@ -38,9 +44,8 @@ data Symbol
 type SymbolTable
  = [(String, [Symbol])]
   
-
 data Func
- = Func String
+ = Func String [Expr]
  deriving (Show, Eq, Typeable, Data)
 
 type MUDAUnit = [Func]
