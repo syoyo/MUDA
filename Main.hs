@@ -6,6 +6,7 @@ import System.Cmd
 
 import Language.MUDA.AST
 import Language.MUDA.Parser
+import Language.MUDA.PPrint
 
 debugPrinter ast =  do putStrLn $ "// [DBG]"
                        putStrLn $ show ast  

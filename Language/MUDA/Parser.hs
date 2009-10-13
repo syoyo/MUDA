@@ -45,8 +45,9 @@ initMUDAState = MUDAState {
   }
 
 
+program :: MUDAParser MUDAUnit
 program             = do  { ast <- many (spaces >> global)
-                          ; return ast
+                          ; return (MUDAUnit ast)
                           }
 
 global              =     functionDefinition

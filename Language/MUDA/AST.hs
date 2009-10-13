@@ -48,4 +48,7 @@ data Func
  = Func String [Expr]
  deriving (Show, Eq, Typeable, Data)
 
-type MUDAUnit = [Func]
+data MUDAUnit
+ = MUDAUnit [Func]
+ deriving (Show, Eq, Typeable, Data)
+

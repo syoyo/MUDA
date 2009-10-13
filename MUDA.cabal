@@ -10,5 +10,5 @@ Cabal-Version:       >=1.2
 
 Executable haq
   Main-is:           Main.hs
-  Build-Depends:     base, process, parsec, syb, mtl, haskell98
+  Build-Depends:     base, process, parsec, syb, mtl, haskell98, pretty
 

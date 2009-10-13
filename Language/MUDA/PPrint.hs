@@ -14,8 +14,18 @@
 
 module Language.MUDA.PPrint where
 
--- TODO: Use syb to pprint MUDA AST.
+import Text.PrettyPrint.HughesPJ
 
 -- Import local modules
 import Language.MUDA.AST
 
+
+-- | Pretty printer class
+class Pretty p where
+  pretty  :: p -> Doc
+
+instance Pretty Func where
+  pretty (Func name stms) = text name
+
+instance Pretty MUDAUnit where
+  pretty (MUDAUnit funcs) = vcat (map pretty funcs)
